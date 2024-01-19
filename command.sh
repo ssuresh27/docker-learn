@@ -41,6 +41,10 @@ docker kill <container_id>
 
 docker exec -it <container_id> <additional_command>
 
+#Verbose
+docker build --progress=plain .
+#To disable cache when building image
+docker build --no-cache --progress=plain .
 #Creating Dockerfile
 #Name should be Dockerfile
 FROM <IMAGE>
@@ -55,3 +59,12 @@ docker build -t yessures/redis:latest .
 
 #start docker from name/tag
 docker run yessures/redis
+
+#Set working Directory in Container
+WORKDIR=/usr/apps
+
+#Copy dependent files from local to container
+COPY ./ ./
+
+#Port mapping/fwd
+docker run -p <source_port(local)>:<target_port(container)> image
