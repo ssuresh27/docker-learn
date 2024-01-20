@@ -41,6 +41,10 @@ docker kill <container_id>
 
 docker exec -it <container_id> <additional_command>
 
+# Run container in foreground
+
+docker run -d <image_id>
+
 #Verbose
 docker build --progress=plain .
 #To disable cache when building image
